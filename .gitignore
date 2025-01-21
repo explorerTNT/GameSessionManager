@@ -2,7 +2,7 @@
 bin/
 obj/
 
-# Каталоги Visual Studio
+# Каталоги Visual Studio и VS Code
 .vs/
 .vscode/
 
@@ -26,3 +26,30 @@ TestResults/
 
 # Конфигурационные файлы среды
 App.config
+App.settings
+
+# Папка с установленными пакетами NuGet
+packages/
+
+# Папка с кешем NuGet
+.nuget/
+
+# Папка для зависимостей SDK, например, NLog или Discord.Net
+*.nlog
+*.nlog.config
+
+# Конфигурация NLog
+nlog.config
+
+# Файлы, связанные с расширениями для CI/CD, если есть
+*.coverage
+*.coveragexml
+*.coveragejson
+
+# Файлы настроек ОС
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Кэш Rider/JetBrains
+.idea/

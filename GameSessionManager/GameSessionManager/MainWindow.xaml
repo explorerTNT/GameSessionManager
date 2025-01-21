@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <!-- Кнопка для отправки уведомления -->
+        <Button x:Name="SendNotificationButton" Content="Отправить уведомление" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="10" Click="SendNotificationButton_Click"/>
+
+        <!-- Кнопка для вызова голосования -->
+        <Button x:Name="StartVotingButton" Content="Начать голосование" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="10,70,10,10" Click="StartVotingButton_Click"/>
+
+        <!-- Кнопка для вызова задания -->
+        <Button x:Name="StartChallengeButton" Content="Начать челендж" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="10,130,10,10" Click="StartChallengeButton_Click"/>
+
+        <!-- Текстовое поле для ввода названия челенджа -->
+        <TextBox x:Name="ChallengeNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="10,190,0,0" />
+
     </Grid>
 </Window>
