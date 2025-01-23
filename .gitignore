@@ -36,10 +36,6 @@ packages/
 
 # Папка для зависимостей SDK, например, NLog или Discord.Net
 *.nlog
-*.nlog.config
-
-# Конфигурация NLog
-nlog.config
 
 # Файлы, связанные с расширениями для CI/CD, если есть
 *.coverage
