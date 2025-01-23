@@ -25,7 +25,6 @@ TestResults/
 *.dmp
 
 # Конфигурационные файлы среды
-App.config
 App.settings
 
 # Папка с установленными пакетами NuGet
