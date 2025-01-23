@@ -5,19 +5,89 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameSessionManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="300">
     <Grid>
-        <!-- Кнопка для отправки уведомления -->
-        <Button x:Name="SendNotificationButton" Content="Отправить уведомление" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="10" Click="SendNotificationButton_Click"/>
+        <TabControl>
 
-        <!-- Кнопка для вызова голосования -->
-        <Button x:Name="StartVotingButton" Content="Начать голосование" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="10,70,10,10" Click="StartVotingButton_Click"/>
+            <TabItem Header="Lobby">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="167*"/>
+                        <RowDefinition Height="27*"/>
+                        <RowDefinition Height="212*"/>
+                    </Grid.RowDefinitions>
 
-        <!-- Кнопка для вызова задания -->
-        <Button x:Name="StartChallengeButton" Content="Начать челендж" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="10,130,10,10" Click="StartChallengeButton_Click"/>
+                    <StackPanel x:Name="LobbyList" Margin="5,5,5,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
 
-        <!-- Текстовое поле для ввода названия челенджа -->
-        <TextBox x:Name="ChallengeNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="10,190,0,0" />
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Player 1" />
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Player 2" />
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Player 3" />
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Player 4" />
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Player 5" />
+                            <TextBlock Grid.Row="5" Grid.Column="0" Text="Player 6" />
+                        </Grid>
 
+
+                    </StackPanel>
+
+
+                    <StackPanel x:Name="NotificationSendBlock" Height="22" VerticalAlignment="Center" Grid.Row="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="11*"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- Кнопка для отправки уведомления Click="SendNotificationButton_Click"-->
+                            <Button Grid.Column="0" x:Name="SendNotificationButton" Content="Send" />
+                            <!-- Поле для отправки уведомления-->
+                            <TextBox Grid.Column="1" Text="Send Notification"/>
+                        </Grid>
+                    </StackPanel>
+                    <TextBox Grid.Row="2" Text="Grim> Пися попа"/>
+
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Friends">
+
+
+            </TabItem>
+
+            <TabItem Header="Chellenge">
+
+            </TabItem>
+
+            <TabItem Header="Options">
+
+            </TabItem>
+
+        </TabControl>
+
+        <!-- Кнопка для отправки уведомления  <Button x:Name="SendNotificationButton" Content="Отправить уведомление" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="10" Click="SendNotificationButton_Click"/>-->
+
+
+        <!-- Кнопка для вызова голосования <Button x:Name="StartVotingButton" Content="Начать голосование" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="10,70,10,10" Click="StartVotingButton_Click"/> -->
+
+
+        <!-- Кнопка для вызова задания <Button x:Name="StartChallengeButton" Content="Начать челендж" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="10,130,10,10" Click="StartChallengeButton_Click"/> -->
+
+
+        <!-- Текстовое поле для ввода названия челенджа  <TextBox x:Name="ChallengeNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="10,190,0,0" /> -->
+
+    
     </Grid>
 </Window>

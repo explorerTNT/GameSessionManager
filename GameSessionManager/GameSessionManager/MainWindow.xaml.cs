@@ -72,29 +72,29 @@ namespace GameSessionManager
         /// <summary>
         /// Обработчик кнопки для начала челенджа.
         /// </summary>
-        private async void StartChallengeButton_Click(object sender, RoutedEventArgs e)
-        {
-            string challengeName = ChallengeNameTextBox.Text?.Trim();
+        //private async void StartChallengeButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    string challengeName = ChallengeNameTextBox.Text?.Trim();
 
-            if (!string.IsNullOrEmpty(challengeName))
-            {
-                try
-                {
-                    await _challengeService.StartChallenge(challengeName);
-                    MessageBox.Show($"Челендж '{challengeName}' успешно начат.");
-                    Logger.Info("Челендж '{0}' начат.", challengeName);
-                }
-                catch (Exception ex)
-                {
-                    Logger.Error(ex, "Ошибка при запуске челенджа '{0}'.", challengeName);
-                    MessageBox.Show($"Ошибка: {ex.Message}");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Пожалуйста, введите название челенджа.");
-                Logger.Warn("Попытка начать челендж без указания названия.");
-            }
-        }
+        //    if (!string.IsNullOrEmpty(challengeName))
+        //    {
+        //        try
+        //        {
+        //            await _challengeService.StartChallenge(challengeName);
+        //            MessageBox.Show($"Челендж '{challengeName}' успешно начат.");
+        //            Logger.Info("Челендж '{0}' начат.", challengeName);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Logger.Error(ex, "Ошибка при запуске челенджа '{0}'.", challengeName);
+        //            MessageBox.Show($"Ошибка: {ex.Message}");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Пожалуйста, введите название челенджа.");
+        //        Logger.Warn("Попытка начать челендж без указания названия.");
+        //    }
+        //}
     }
 }
