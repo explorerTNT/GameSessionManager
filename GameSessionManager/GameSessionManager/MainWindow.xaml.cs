@@ -3,6 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
 using NLog;
+using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace GameSessionManager
 {
@@ -11,6 +13,8 @@ namespace GameSessionManager
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
         private readonly NotificationService _notificationService;
         private readonly VotingService _votingService;
         private readonly ChallengeService _challengeService;
@@ -29,7 +33,21 @@ namespace GameSessionManager
             _votingService = votingService;
             _challengeService = challengeService;
 
-            Logger.Info("Главное окно успешно инициализировано.");
+            List<string> styles = new List<string> { "light", "dark" };
+            ThemeBox.SelectionChanged += ThemeChange;
+            ThemeBox.ItemsSource = styles;
+            ThemeBox.SelectedItem = "dark";
+
+        Logger.Info("Главное окно успешно инициализировано.");
+        }
+        //Обработчик изменения темы
+        private void ThemeChange(object sender, SelectionChangedEventArgs e)
+        {
+            string style = ThemeBox.SelectedItem as string;
+            var uri = new Uri(style + ".xaml", UriKind.Relative);
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
         }
 
         /// <summary>
@@ -72,29 +90,29 @@ namespace GameSessionManager
         /// <summary>
         /// Обработчик кнопки для начала челенджа.
         /// </summary>
-        //private async void StartChallengeButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    string challengeName = ChallengeNameTextBox.Text?.Trim();
+        private async void StartChallengeButton_Click(object sender, RoutedEventArgs e)
+        {
+            string challengeName = ChallengeNameTextBox.Text?.Trim();
 
-        //    if (!string.IsNullOrEmpty(challengeName))
-        //    {
-        //        try
-        //        {
-        //            await _challengeService.StartChallenge(challengeName);
-        //            MessageBox.Show($"Челендж '{challengeName}' успешно начат.");
-        //            Logger.Info("Челендж '{0}' начат.", challengeName);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Logger.Error(ex, "Ошибка при запуске челенджа '{0}'.", challengeName);
-        //            MessageBox.Show($"Ошибка: {ex.Message}");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Пожалуйста, введите название челенджа.");
-        //        Logger.Warn("Попытка начать челендж без указания названия.");
-        //    }
-        //}
+            if (!string.IsNullOrEmpty(challengeName))
+            {
+                try
+                {
+                    await _challengeService.StartChallenge(challengeName);
+                    MessageBox.Show($"Челендж '{challengeName}' успешно начат.");
+                    Logger.Info("Челендж '{0}' начат.", challengeName);
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error(ex, "Ошибка при запуске челенджа '{0}'.", challengeName);
+                    MessageBox.Show($"Ошибка: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, введите название челенджа.");
+                Logger.Warn("Попытка начать челендж без указания названия.");
+            }
+        }
     }
 }

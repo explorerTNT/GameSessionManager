@@ -25,7 +25,6 @@ TestResults/
 *.dmp
 
 # Конфигурационные файлы среды
-App.config
 App.settings
 
 # Папка с установленными пакетами NuGet
@@ -39,7 +38,6 @@ packages/
 *.nlog.config
 
 # Конфигурация NLog
-nlog.config
 
 # Файлы, связанные с расширениями для CI/CD, если есть
 *.coverage

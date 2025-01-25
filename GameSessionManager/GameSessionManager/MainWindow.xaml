@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="300">
     <Grid>
-        <TabControl>
+        
+        <TabControl Style="{DynamicResource TabControllStyle}">
 
-            <TabItem Header="Lobby">
+            <TabItem Style="{DynamicResource TabItemStyle}" Header="Lobby">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="167*"/>
@@ -51,7 +52,7 @@
                                 <ColumnDefinition Width="11*"/>
                             </Grid.ColumnDefinitions>
                             <!-- Кнопка для отправки уведомления Click="SendNotificationButton_Click"-->
-                            <Button Grid.Column="0" x:Name="SendNotificationButton" Content="Send" />
+                            <Button Style="{DynamicResource ButtonStyle}" Grid.Column="0" x:Name="SendNotificationButton" Content="Send" />
                             <!-- Поле для отправки уведомления-->
                             <TextBox Grid.Column="1" Text="Send Notification"/>
                         </Grid>
@@ -62,22 +63,49 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Header="Friends">
+            <TabItem Style="{DynamicResource TabItemStyle}" Header="Friends">
+                <!--to do: сделать список друзей-->
+            </TabItem>
 
+            <TabItem Style="{DynamicResource TabItemStyle}" Header="Chellenge">
+                <!--to do: сделать вкладку chellenge-->
+            </TabItem>
+
+            <TabItem Style="{DynamicResource TabItemStyle}" Header="Options">
+                <!--to do: сделать вкладку настроек-->
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Тема"/>
+                        <ComboBox x:Name="ThemeBox" Grid.Row="0" Grid.Column="1"/>
+                    </Grid>
+                </StackPanel>
 
             </TabItem>
 
-            <TabItem Header="Chellenge">
-
-            </TabItem>
-
-            <TabItem Header="Options">
-
+            <TabItem Style="{DynamicResource TabItemStyle}" Header="Debug">
+                <StackPanel>
+                    <Button x:Name="StartVotingButton" Content="Начать голосование" Click="StartVotingButton_Click"/>
+                    <Button x:Name="StartChallengeButton" Content="Начать челендж" Click="StartChallengeButton_Click"/>
+                    <TextBox x:Name="ChallengeNameTextBox" Text="Challenge Text"/>
+                </StackPanel>
+                                
             </TabItem>
 
         </TabControl>
 
-        <!-- Кнопка для отправки уведомления  <Button x:Name="SendNotificationButton" Content="Отправить уведомление" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="10" Click="SendNotificationButton_Click"/>-->
+        <!-- Кнопка для отправки уведомления !!!!УЖЕ ДОБАВЛЕНА <Button x:Name="SendNotificationButton" Content="Отправить уведомление" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="10" Click="SendNotificationButton_Click"/>-->
 
 
         <!-- Кнопка для вызова голосования <Button x:Name="StartVotingButton" Content="Начать голосование" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="10,70,10,10" Click="StartVotingButton_Click"/> -->
